@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Button, Form, TextArea } from 'semantic-ui-react';
 import HTTPService from '../../service/HTTPService';
 import "./formular.css";
+import InputPhoto from '../inputPhoto/inputPhoto';
 
 const Formular = () => {
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
-    const [url, setUrl] = useState('');
+    const [urlImg, setUrlImg] = useState("");
 
 
     const handleSubmit = (event) => {
@@ -19,7 +20,7 @@ const Formular = () => {
             theme: category,
             description: description,
             location: location,
-            url: url
+            urlImg: urlImg
 
         }
         event.target.reset();
@@ -60,8 +61,7 @@ const Formular = () => {
                         placeholder='Localización experiencia' type="text" />
                 </Form.Field>
                 <Form.Field>
-                    <label for="myfile">CARGAR IMÁGENES</label>
-                    <input type="file" id='myfile' name='myfile'></input>
+                    <InputPhoto setUrlImg={setUrlImg} />
                 </Form.Field>
                 <Button type="submit" content='Enviar' icon='like'></Button>
                 <Button type="submit" content='Cancelar' icon='cancel' href='/'></Button>

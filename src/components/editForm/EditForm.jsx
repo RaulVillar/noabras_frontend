@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, TextArea } from 'semantic-ui-react';
 import HTTPService from "../../service/HTTPService";
+import InputPhoto from '../inputPhoto/inputPhoto';
 
 const EditForm = ({ data, setData, onCancel }) => {
     const [editedData, setEditedData] = useState({ ...data });
@@ -54,8 +55,7 @@ const EditForm = ({ data, setData, onCancel }) => {
                     <input value={editedData.url} onChange={handleInputChange} type="text" id="exampleFormControlInput2" name="url" />
                 </Form.Field>
                 <Form.Field>
-                    <label for="myfile">CARGAR IMÁGENES</label>
-                    <input type="file" id='myfile' name='myfile'></input>
+                     <InputPhoto />
                 </Form.Field>
                 <div>
                     <Button type="submit" content='Enviar' icon='like'></Button>

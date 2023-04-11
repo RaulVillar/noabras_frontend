@@ -70,7 +70,7 @@ function BodyView({ searchTerm }) {
                         <div key={legend.id} className="card mb-3 bg-dark" style={{ maxwidth: "100px" }}>
                             <div className="row g-0">
                                 <div className="col-md-4">
-                                    <img src={legend.url} className="img-fluid rounded-start" alt="..." />
+                                    <img src={legend.urlImg} className="img-fluid rounded-start" alt="..." />
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body text-white" style={{ width: "80%" }} >

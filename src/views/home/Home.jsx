@@ -6,6 +6,7 @@ import BodyHome from "../../components/body/BodyHome";
 
 
 function Home() {
+   
 
     return (
         <div>

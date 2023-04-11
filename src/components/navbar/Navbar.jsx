@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
+
+import React from "react";
+
+
 import "./Navbar.css";
 import HTTPService from "../../service/HTTPService";
 import logo from "../../assets/logo.png";
@@ -10,6 +14,19 @@ function Navbar() {
   const [showResults, setShowResults] = useState(false);
   const httpService = HTTPService();
 
+  // const dispatch = useDispatch
+
+  // function handleInputChange(event) {
+  //  dispatch({
+  //     type: 'SET_TEXT',
+  //     payload: event.target.value,
+  //   });
+  // }
+
+  function handleInputChange(event) {
+    const text = event.target.value;
+    document.dispatchEvent(new CustomEvent('textChanged', { detail: text }));
+  }
 
 
 
@@ -42,7 +59,6 @@ function Navbar() {
   };
 
   return (
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div class="container-fluid">
         <Link to="/">
@@ -73,13 +89,12 @@ function Navbar() {
           <form class="d-flex" role="search">
             <input class="form-control me-2" className="form-control me-2"
               placeholder="Search"
-              type="text"
-              value={searchTerm}
-              onChange={handleSearchTermChange}
+              type="text"             
+              onClick={handleInputChange}
               aria-label="Search" />
             <button className="btn btn-outline-success"
               type="button"
-              onClick={handleSearchClick}>Search</button>
+              >Search</button>
           </form>
         </div>
       </div>

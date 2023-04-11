@@ -5,7 +5,10 @@ import Footer from "../../components/footer/Footer";
 import ButtonTop from "../../components/elements/ButtonTop";
 
 
+
+
 function MyLegends() {
+  
 
   return (
 
@@ -14,8 +17,8 @@ function MyLegends() {
       <BodyView />
       <Footer />
       <ButtonTop />
-
     </div>
+
 
   )
 }

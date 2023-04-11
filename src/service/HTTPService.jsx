@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const HTTPService = () => {
 
-  const url = 'http://localhost:8081/model';
+  const url = 'http://localhost:8080/model';
 
   const getAllData = async () => {
     const response = await axios.get(`${url}`);

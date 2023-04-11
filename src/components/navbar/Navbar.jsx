@@ -45,10 +45,10 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-dark">
       <div className="container-fluid">
         <Link to="/">
-          <img className="navbar-brand logo" src={logo} alt="logo" />
+          <img className="navbar-brand logo" src={logo} style={{width:"50vw"}}alt="logo" />
         </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav " style={{marginleft:"0vw"}}>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle text-white"
@@ -60,24 +60,23 @@ function Navbar() {
                 Menu
               </a>
               <ul className="dropdown-menu bg-dark">
-                <li>
-                  <Link to="/leyendas" className="dropdown-item text-white">
+                  <Link to="/leyendas" >
+                <li className="dropdown-item text-white">
                     Experiencias paranormales
-                  </Link>
                 </li>
-                <li>
-                  <Link to="/historias" className="dropdown-item text-white">
+                  </Link>
+                  <Link to="/historias" >
+                <li className="dropdown-item text-white">
                     Tus historias
-                  </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/psicofonias"
-                    className="dropdown-item text-white"
-                  >
+                  </Link>
+                  <Link to="/psicofonias"  >
+                <li className="dropdown-item text-white">
+                    
+                
                     Psicofonías
-                  </Link>
                 </li>
+                  </Link>
               </ul>
             </li>
           </ul>

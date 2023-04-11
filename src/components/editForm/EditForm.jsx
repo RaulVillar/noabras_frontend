@@ -3,6 +3,7 @@ import { Button, Form, TextArea } from 'semantic-ui-react';
 import HTTPService from "../../service/HTTPService";
 import InputPhoto from '../inputPhoto/inputPhoto';
 
+
 const EditForm = ({ data, setData, onCancel }) => {
     const [editedData, setEditedData] = useState({ ...data });
 

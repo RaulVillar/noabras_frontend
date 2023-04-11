@@ -3,6 +3,7 @@ import { Button, Form, TextArea } from 'semantic-ui-react';
 import HTTPService from '../../service/HTTPService';
 import "./formular.css";
 import InputPhoto from '../inputPhoto/inputPhoto';
+import { Link } from "react-router-dom";
 
 const Formular = () => {
     const [title, setTitle] = useState('');
@@ -13,8 +14,6 @@ const Formular = () => {
 
 
     const handleSubmit = (event) => {
-        console.log(event);
-        event.preventDefault();
         const data = {
             name: title,
             theme: category,
@@ -23,21 +22,14 @@ const Formular = () => {
             urlImg: urlImg
 
         }
-        event.target.reset();
 
         HTTPService().createData(data)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
     }
 
     return (
         <div className='main-form'>
             <h2>COMPARTE TU EXPERIENCIA</h2>
-            <Form className='create-form' onSubmit={handleSubmit}>
+            <Form className='create-form'>
                 <Form.Field>
                     <label>TÍTULO</label>
                     <input onChange={(event) => { setTitle(event.target.value) }}
@@ -63,7 +55,9 @@ const Formular = () => {
                 <Form.Field>
                     <InputPhoto setUrlImg={setUrlImg} />
                 </Form.Field>
-                <Button type="submit" content='Enviar' icon='like'></Button>
+                <Link to="/leyendas">
+                    <Button onClick={() => handleSubmit()} type="submit" content='Enviar' icon='like'></Button>
+                </Link>
                 <Button type="submit" content='Cancelar' icon='cancel' href='/'></Button>
             </Form>
         </div>

@@ -1,10 +1,11 @@
 import React from 'react'
-import fondo from "../../assets/fondo.jpg"
+import background from "../../assets/fondo.jpg"
+import "./BodyHome.css"
 
 function BodyHome() {
   return (
     <div>
-      <img src={fondo} alt="imagen" width={"100%"} />
+      <img src={background} className= "BgImage" alt="imagen" />
     </div>
   )
 }

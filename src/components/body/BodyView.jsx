@@ -12,19 +12,19 @@ function BodyView() {
 
 console.log(data)
 console.log(editingData)
-
+console.log(filteredData)
 
 useEffect(() =>{
-    function handleTextChange(event){
-        setEditingData(event.detail);
-    }
-    document.addEventListener('textChanged', handleTextChange);
-    return () =>{
-        document.removeEventListener('textChanged', handleTextChange);
-    };
+function handleTextChange(event){
+    setEditingData(event.detail);
+}
+document.addEventListener('textChanged', handleTextChange);
+return () =>{
+    document.removeEventListener('textChanged', handleTextChange);
+};
 },[]);
 
-function filter(editingData){
+useEffect(()=>{
 var result = filteredData.filter((item) => {
     if (item.name.toString().toLowerCase().includes(editingData.toLowerCase())
         || item.location.toString().toLowerCase().includes(editingData.toLowerCase())) {
@@ -32,36 +32,18 @@ var result = filteredData.filter((item) => {
     }       
 });
 setData(result);
-}
+},[editingData])
 
-
-
-    useEffect(() => {
-        HTTPService().getAllData()
-            .then(response => {
-                setData(response);
+useEffect(() => {
+    HTTPService().getAllData()
+        .then(response => {
+            setData(response);
                 setFilteredData(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }, []);
-
-    
-
-    // useEffect(() => {
-    //     if (searchTerm) {
-    //         const filtered = data.filter(item => {
-    //             return item.theme.toLowerCase().includes(searchTerm.toLowerCase());
-    //         });
-    //         setFilteredData(filtered);
-    //     } else {
-    //         setFilteredData(data);
-    //     }
-    // }, [searchTerm, data]);
-
-
-
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}, []);
 
 
     const handleDelete = (id) => {
@@ -69,7 +51,7 @@ setData(result);
             HTTPService().deleteData(id)
                 .then(() => {
                     HTTPService().getAllData()
-                        .then(response => {
+                            .then(response => {
                             setData(response);
                         })
                         .catch(error => {
@@ -87,12 +69,12 @@ setData(result);
     }
 
     return (
-        <><button onClick={filter}>filter</button>
-            {/* {editingData ? (
-                <div>
-                    <EditForm data={editingData} onSubmit={handleEdit} onCancel={handleEdit} />
-                </div>
-            ) : ( */}
+        // <>
+        //     {editingData ? (
+        //         <div>
+        //             <EditForm data={editingData} onSubmit={handleEdit} onCancel={handleEdit} />
+        //         </div>
+        //     ) : (
                 <div className="main-view">
                     {data.map((legend) => (
                         <div key={legend.id} className="card mb-3 bg-dark" style={{ maxwidth: "100px" }}>
@@ -118,8 +100,8 @@ setData(result);
                             <button className="btn btn-secondary" type="button">INICIO</button></a>
                     </div>
                 </div>
-            {/* )} */}
-        </>
+    //          )} 
+    //     </>
     );
 }
 

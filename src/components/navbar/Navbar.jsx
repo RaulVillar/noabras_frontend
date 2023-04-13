@@ -9,54 +9,17 @@ import HTTPService from "../../service/HTTPService";
 import logo from "../../assets/logo.png";
 
 function Navbar() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [results, setResults] = useState([]);
-  const [showResults, setShowResults] = useState(false);
+  const [text, setText] = useState("")
   const httpService = HTTPService();
 
-  // const dispatch = useDispatch
 
-  // function handleInputChange(event) {
-  //  dispatch({
-  //     type: 'SET_TEXT',
-  //     payload: event.target.value,
-  //   });
-  // }
-
-  function handleInputChange(event) {
-    const text = event.target.value;
+  function handleInputChange() {
     document.dispatchEvent(new CustomEvent('textChanged', { detail: text }));
   }
+  function handleSearch(event) {
+  setText(event.target.value)
+  }
 
-
-
-  const handleSearchTermChange = (event) => {
-    const term = event.target.value;
-    setSearchTerm(term);
-    if (term) {
-      searchAPI(term);
-    } else {
-      resetResults();
-    }
-  };
-
-  const searchAPI = async (term) => {
-    const data = await httpService.getAllData();
-    const filteredResults = data.filter((item) =>
-      item.theme.toLowerCase().includes(term.toLowerCase())
-    );
-    setResults(filteredResults);
-    setShowResults(true);
-  };
-
-  const resetResults = () => {
-    setResults([]);
-    setShowResults(false);
-  };
-
-  const handleSearchClick = () => {
-    searchAPI(searchTerm);
-  };
 
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -90,10 +53,11 @@ function Navbar() {
             <input class="form-control me-2" className="form-control me-2"
               placeholder="Search"
               type="text"             
-              onClick={handleInputChange}
+              onChange={handleSearch}
               aria-label="Search" />
             <button className="btn btn-outline-success"
               type="button"
+              onClick={handleInputChange}
               >Search</button>
           </form>
         </div>

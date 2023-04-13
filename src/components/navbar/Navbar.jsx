@@ -13,10 +13,10 @@ function Navbar() {
   const httpService = HTTPService();
 
 
-  function handleInputChange() {
+  function handleClickButton() {
     document.dispatchEvent(new CustomEvent('textChanged', { detail: text }));
   }
-  function handleSearch(event) {
+  function handleInputEvent(event) {
   setText(event.target.value)
   }
 
@@ -53,11 +53,11 @@ function Navbar() {
             <input class="form-control me-2" className="form-control me-2"
               placeholder="Search"
               type="text"             
-              onChange={handleSearch}
+              onChange={handleInputEvent}
               aria-label="Search" />
             <button className="btn btn-outline-success"
               type="button"
-              onClick={handleInputChange}
+              onClick={handleClickButton}
               >Search</button>
           </form>
         </div>

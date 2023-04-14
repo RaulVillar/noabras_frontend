@@ -5,12 +5,11 @@ function Card(props) {
 
 
 
-    return (
-        <div>
-            <div key={props.id} className="card mb-3 bg-dark" style={{ maxwidth: "100px" }}>
+    return (    
+            <div key={props.id} className="card mb-3 bg-dark" style={{ width:"20vw" }}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={props.urlImg} className="img-fluid rounded-start" alt="..." />
+                        <img src={props.url} className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body text-white" style={{ width: "80%" }} >
@@ -18,13 +17,14 @@ function Card(props) {
                             <p className="card-text "><small className="text-body-secondary text-white">{props.location}</small></p>
                             <p className="card-text "><small className="text-body-secondary text-white">{props.theme}</small></p>
                             <p className="card-text ">{props.description}</p>
-                            <button className="btn btn-light" style={{ margin: "15px" }} onClick={props.onClick1}>Editar</button>
-                            <button className="btn btn-light" onClick={props.onClick2}>Borrar</button>
+                            <div style={{display:"flex"}}>
+                                <button className="btn btn-light" style={{ margin: "0.5vw" }} onClick={props.onClick1}>Editar</button>
+                                <button className="btn btn-light" style={{ margin: "0.5vw" }} onClick={props.onClick2}>Borrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

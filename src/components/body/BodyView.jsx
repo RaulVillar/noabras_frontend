@@ -9,8 +9,7 @@ function BodyView() {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [editingData, setEditingData] = useState('')
-console.log(data)
-
+    
     useEffect(() => {
         function handleTextChange(event) {
             setEditingData(event.detail);
@@ -74,19 +73,66 @@ console.log(data)
         //         </div>
         //     ) : (
         <div className="main-view">
-            {data.map((legend) =>
-                <Card
-                    legend={legend}
-                    id={legend.id}
-                    name={legend.name}
-                    description={legend.description}
-                    location={legend.location}
-                    theme={legend.theme}
-                    url={legend.url}
-                    onClick1={() => handleEdit(legend.id)}
-                    onClick2={() => handleDelete(legend.id)}
-                />
-            )}
+            <div>
+                <div style={{ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom:"2vh", marginTop:"2vh" }}>
+                    <h1>Mitos y Leyendas</h1>
+                </div>
+                <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr", gap:"3vw", width:"90vw", justifyItems:"center", margin:"auto"}}>
+                    {data.filter((legend) => legend.theme === "Mitos y Leyendas").map((legend) =>
+                        <Card
+                            legend={legend}
+                            id={legend.id}
+                            name={legend.name}
+                            description={legend.description}
+                            location={legend.location}
+                            theme={legend.theme}
+                            url={legend.url}
+                            onClick1={() => handleEdit(legend.id)}
+                            onClick2={() => handleDelete(legend.id)}
+                        />
+                    )}
+                </div>
+            </div>
+            <div>
+                <div style={{ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom:"2vh", marginTop:"2vh" }}>
+                    <h1>Avistamientos Ovnis</h1>
+                </div>
+                <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr", gap:"3vw", width:"90vw", justifyItems:"center", margin:"auto"}}>
+                    {data.filter((legends) => legends.theme === "Avistamientos Ovnis").map((legend) =>
+                        <Card
+                            legend={legend}
+                            id={legend.id}
+                            name={legend.name}
+                            description={legend.description}
+                            location={legend.location}
+                            theme={legend.theme}
+                            url={legend.url}
+                            onClick1={() => handleEdit(legend.id)}
+                            onClick2={() => handleDelete(legend.id)}
+                        />
+                    )}
+                </div>
+            </div>
+            <div>
+                <div style={{ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom:"2vh", marginTop:"2vh" }}>
+                    <h1>Experiencias Paranormales</h1>
+                </div>
+                <div style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr", gap:"3vw", width:"90vw", justifyItems:"center", margin:"auto"}}>
+                    {data.filter((legends) => legends.theme === "Experiencias Paranormales").map((legend) =>
+                        <Card
+                            legend={legend}
+                            id={legend.id}
+                            name={legend.name}
+                            description={legend.description}
+                            location={legend.location}
+                            theme={legend.theme}
+                            url={legend.url}
+                            onClick1={() => handleEdit(legend.id)}
+                            onClick2={() => handleDelete(legend.id)}
+                        />
+                    )}
+                </div>
+            </div>
             <div className="d-grid gap-2 d-md-block">
                 <a className="buttonToHome" href={"/"}>
                     <button className="btn btn-secondary" type="button">INICIO</button></a>

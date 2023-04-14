@@ -43,9 +43,9 @@ const Formular = () => {
                 <Form.Field label='TIPO' control='select' onChange={(event) => { setCategory(event.target.value) }} >
                     <label>TIPO</label>
                     <input placeholder='Tipo experiencia' type="text" />
-                    <option value='Mitos y leyendas'>Mitos y leyendas</option>
-                    <option value='Avistamientos ovnis'>Avistamientos ovnis</option>
-                    <option value='Experiencias paranormales'>Experiencias paranormales</option>
+                    <option value='Mitos y Leyendas'>Mitos y leyendas</option>
+                    <option value='Avistamientos Ovnis'>Avistamientos ovnis</option>
+                    <option value='Experiencias Paranormales'>Experiencias paranormales</option>
                 </Form.Field>
                 <Form.Field>
                     <label>LOCALIZACIÓN</label>

@@ -4,7 +4,7 @@ function Card(props) {
 
     const [authorization, setAuthorization] = useState({ display:"none" });
 
-    let loginRol = "pepe" // hacer esta variable global con usecontext
+    let loginRol = "admin" // hacer esta variable global con usecontext
 
 useEffect(()=>{
     if(loginRol === "admin"){

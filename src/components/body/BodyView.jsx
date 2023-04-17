@@ -100,7 +100,7 @@ function BodyView() {
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr", gap: "3vw", width: "90vw", justifyItems: "center", margin: "auto" }}>
                         {data.filter((legend) => legend.theme === "Mitos y Leyendas").map((legend) =>
-                            <CardAdmin
+                            <Card
                                 legend={legend}
                                 id={legend.id}
                                 name={legend.name}

@@ -10,7 +10,7 @@ const Formular = () => {
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
-    const [urlImg, setUrlImg] = useState("");
+    const [url, setUrl] = useState("");
 
 
     const handleSubmit = (event) => {
@@ -19,7 +19,7 @@ const Formular = () => {
             theme: category,
             description: description,
             location: location,
-            urlImg: urlImg
+            url: url
 
         }
 
@@ -53,7 +53,7 @@ const Formular = () => {
                         placeholder='Localización experiencia' type="text" />
                 </Form.Field>
                 <Form.Field>
-                    <InputPhoto setUrlImg={setUrlImg} />
+                    <InputPhoto setUrl={setUrl} />
                 </Form.Field>
                 <Link to="/leyendas">
                     <Button onClick={() => handleSubmit()} type="submit" content='Enviar' icon='like'></Button>

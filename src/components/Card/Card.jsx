@@ -4,10 +4,10 @@ function Card(props) {
 
     const [authorization, setAuthorization] = useState({ display:"none" });
 
-    let authority = "pepe"
+    let loginRol = "pepe" // hacer esta variable global con usecontext
 
 useEffect(()=>{
-    if(authority === "admin"){
+    if(loginRol === "admin"){
             setAuthorization({ display: "block", margin: "0.5vw" })
         }
 })

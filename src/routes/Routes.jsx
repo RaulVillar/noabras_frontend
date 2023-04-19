@@ -18,7 +18,8 @@ const Router = () => {
                 <Route path="/historias" element={<Histories />}></Route>
                 <Route path="/edit/:id" element={<FormEdit />}></Route> 
                 <Route path="/psicofonias" element={<Psychophonie />}></Route>
-                <Route path="/login" element={<Login />}></Route>      
+                <Route path="/login" element={<Login />}></Route> 
+                    
             </Routes>
         </BrowserRouter>
     );

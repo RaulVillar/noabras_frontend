@@ -9,7 +9,7 @@ function Histories() {
     <div>
       <Navbar />
       <Form />
-      <Footer />
+      
     </div>
   )
 }

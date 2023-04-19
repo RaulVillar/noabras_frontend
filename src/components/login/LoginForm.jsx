@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import "./LoginForm.css"
+import AuthService from "../../service/AuthService";
+
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -8,14 +10,14 @@ function LoginForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const credentials = { username, password };
-    LoginForm(credentials);
+   AuthService.login(username, password);
   };
 
   return (
     <div className="container d-flex justify-content-center align-items-center mt-5">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title text-center">Log in</h3>
+          <h3 class="card-title text-center">Login</h3>
         </div>
         <div class="card-body">
           <form onSubmit={handleSubmit} class="form">

@@ -14,11 +14,9 @@ function BodyView() {
     const [styleSectionMyths, setStyleSectionMyths] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
     const [styleSectionSightings, setStyleSectionSightings] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
     const [styleSectionExperiences, setStyleSectionExperiencies] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
-    
-   
+
     console.log(showCard);
     console.log(selectedCard);
-    console.log(data);
     
     useEffect(() => {
         function handleTextChange(event) {
@@ -86,17 +84,18 @@ function BodyView() {
                 });
         }
     }
-    const handleEdit = (id) => {
-        const dataToEdit = data.find(d => d.id === id);
-        setCardEdit(dataToEdit);
-        setShowCard(false)
+
+    const saveCard = () => {   
+        setSelectCard(null);
+        setShowCard(false);
+        window.location.reload();
     }
 
     const changeCard = (id) => {
         setSelectCard(id);
-        setShowCard(true);
+        (showCard === false) ? setShowCard(true) : setShowCard(false);
     }
-    
+
 
 
 
@@ -109,7 +108,7 @@ function BodyView() {
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr", gap: "3vw", width: "90vw", justifyItems: "center", margin: "auto" }}>
                         {data.filter((legend) => legend.theme === "Mitos y Leyendas").map((legend) =>
-                             selectedCard == legend.id && showCard == true ?
+                            selectedCard === legend.id && showCard === true ?
                                 <CardAdmin
                                     legend={legend}
                                     id={legend.id}
@@ -118,7 +117,7 @@ function BodyView() {
                                     location={legend.location}
                                     theme={legend.theme}
                                     url={legend.url}
-                                    onClick1={() => handleEdit(legend.id)}
+                                    onClick3={() => saveCard()}
                                     onClick2={() => handleDelete(legend.id)}
                                 />
                                 :
@@ -142,8 +141,8 @@ function BodyView() {
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr", gap: "3vw", width: "90vw", justifyItems: "center", margin: "auto" }}>
                         {data.filter((legends) => legends.theme === "Avistamientos Ovnis").map((legend) =>
-                            showCard
-                                ? <Card
+                            selectedCard === legend.id && showCard === true ?
+                                <CardAdmin
                                     legend={legend}
                                     id={legend.id}
                                     name={legend.name}
@@ -151,10 +150,11 @@ function BodyView() {
                                     location={legend.location}
                                     theme={legend.theme}
                                     url={legend.url}
-                                    onClick1={changeCard}
+                                    onClick3={saveCard}
                                     onClick2={() => handleDelete(legend.id)}
                                 />
-                                : <Card
+                                :
+                                <Card
                                     legend={legend}
                                     id={legend.id}
                                     name={legend.name}
@@ -162,7 +162,7 @@ function BodyView() {
                                     location={legend.location}
                                     theme={legend.theme}
                                     url={legend.url}
-                                    onClick1={() => handleEdit(legend.id)}
+                                    onClick1={() => changeCard(legend.id)}
                                     onClick2={() => handleDelete(legend.id)}
                                 />
                         )}
@@ -174,24 +174,33 @@ function BodyView() {
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr", gap: "3vw", width: "90vw", justifyItems: "center", margin: "auto" }}>
                         {data.filter((legends) => legends.theme === "Experiencias Paranormales").map((legend) =>
-                            <Card
-                                legend={legend}
-                                id={legend.id}
-                                name={legend.name}
-                                description={legend.description}
-                                location={legend.location}
-                                theme={legend.theme}
-                                url={legend.url}
-                                onClick1={() => handleEdit(legend.id)}
-                                onClick2={() => handleDelete(legend.id)}
-                            />
+                            selectedCard === legend.id && showCard === true ?
+                                <CardAdmin
+                                    legend={legend}
+                                    id={legend.id}
+                                    name={legend.name}
+                                    description={legend.description}
+                                    location={legend.location}
+                                    theme={legend.theme}
+                                    url={legend.url}
+                                    onClick3={saveCard}
+                                    onClick2={() => handleDelete(legend.id)}
+                                />
+                                :
+                                <Card
+                                    legend={legend}
+                                    id={legend.id}
+                                    name={legend.name}
+                                    description={legend.description}
+                                    location={legend.location}
+                                    theme={legend.theme}
+                                    url={legend.url}
+                                    onClick1={() => changeCard(legend.id)}
+                                    onClick2={() => handleDelete(legend.id)}
+                                />
                         )}
                     </div>
                 </div>
-                {/* <div className="d-grid gap-2 d-md-block">
-                    <a className="buttonToHome" href={"/"}>
-                        <button className="btn btn-secondary" type="button">INICIO</button></a>
-                </div> */}
             </div>
         </>
     );

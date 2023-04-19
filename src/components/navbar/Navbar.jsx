@@ -32,7 +32,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
             <li className="nav-item dropdown">
-              <a classNAme="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
                 Menu
               </a>
               <ul className="dropdown-menu bg-dark">
@@ -49,9 +49,9 @@ function Navbar() {
             </li>
           </ul>
           <a className="nav-item">
-            <Link to="/login" className="nav-link text-white ">Login</Link>
+            <Link to="/login" className="btn btn-dark">Login</Link>
           </a>
-          <form className="d-flex" role="search">
+          <form className="d-flex ms-auto" role="search">
             <input className="form-control me-2"
               placeholder="Search"
               type="text"

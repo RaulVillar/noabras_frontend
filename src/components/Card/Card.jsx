@@ -7,8 +7,6 @@ function Card(props) {
     const [authorization, setAuthorization] = useState({ display:"none" });
     const loginRol = useContext(RoleValue);
 
-    console.log(loginRol)
-
 useEffect(()=>{
     if(loginRol.rol === "admin"){
             setAuthorization({ display: "block", margin: "0.5vw" })

@@ -14,9 +14,6 @@ function BodyView() {
     const [styleSectionMyths, setStyleSectionMyths] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
     const [styleSectionSightings, setStyleSectionSightings] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
     const [styleSectionExperiences, setStyleSectionExperiencies] = useState({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" });
-
-    console.log(showCard);
-    console.log(selectedCard);
     
     useEffect(() => {
         function handleTextChange(event) {
@@ -95,9 +92,6 @@ function BodyView() {
         setSelectCard(id);
         (showCard === false) ? setShowCard(true) : setShowCard(false);
     }
-
-
-
 
     return (
         <>

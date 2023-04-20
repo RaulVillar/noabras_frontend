@@ -32,9 +32,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
             <li className="nav-item dropdown">
-              <a className="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu
-              </a>
+              <a className="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
               <ul className="dropdown-menu bg-dark">
                 <Link to="/leyendas">
                   <li><a className="dropdown-item text-white">Experiencias paranormales</a></li>
@@ -51,16 +49,12 @@ function Navbar() {
           <a className="nav-item">
             <Link to="/login" className="btn btn-dark">Login</Link>
           </a>
+          <a className="nav-item">
+            <Link to="/register" className="btn btn-dark">Registro</Link>
+          </a>
           <form className="d-flex ms-auto" role="search">
-            <input className="form-control me-2"
-              placeholder="Search"
-              type="text"
-              onChange={handleInputEvent}
-              aria-label="Search" />
-            <button className="btn btn-outline-success"
-              type="button"
-              onClick={handleClickButton}
-            >Search</button>
+            <input className="form-control me-2" placeholder="Search" type="text" onChange={handleInputEvent} aria-label="Search" />
+            <button className="btn btn-outline-success" type="button" onClick={handleClickButton}>Search</button>
           </form>
         </div>
       </div>

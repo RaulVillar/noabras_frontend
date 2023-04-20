@@ -6,6 +6,8 @@ import MyLegends from "../views/legends/MyLegends";
 import FormEdit from "../views/formEdit/FormEdit";
 import Psychophonie from "../views/psychophonie/Psychophonie";
 import Login from "../views/login/Login";
+ import Register from "../views/register/Register";
+
 
 
 const Router = () => {
@@ -19,7 +21,7 @@ const Router = () => {
                 <Route path="/edit/:id" element={<FormEdit />}></Route> 
                 <Route path="/psicofonias" element={<Psychophonie />}></Route>
                 <Route path="/login" element={<Login />}></Route> 
-                    
+                <Route path="/register" element={<Register />}></Route>     
             </Routes>
         </BrowserRouter>
     );

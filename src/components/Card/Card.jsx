@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { RoleValue } from '../RoleValue/RoleValue';
+
 
 function Card(props) {
 
     const [authorization, setAuthorization] = useState({ display:"none" });
+    const loginRol = useContext(RoleValue);
 
-    let loginRol = "admin" // hacer esta variable global con usecontext
+    console.log(loginRol)
 
 useEffect(()=>{
-    if(loginRol === "admin"){
+    if(loginRol.rol === "admin"){
             setAuthorization({ display: "block", margin: "0.5vw" })
         }
 })
@@ -31,8 +34,7 @@ useEffect(()=>{
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>    
     )
 }
 

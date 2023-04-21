@@ -37,7 +37,6 @@ function BodyView() {
 
     useEffect(() => {
         const myths = data.filter((legend) => legend.theme === "Mitos y Leyendas");
-
         myths.length === 0
             ? setStyleSectionMyths({ display: "none" })
             : setStyleSectionMyths({ background: "white", width: "100vw", opacity: "0.2", display: "flex", justifyContent: "center", marginBottom: "2vh", marginTop: "2vh" })

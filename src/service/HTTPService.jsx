@@ -1,4 +1,5 @@
 import axios from 'axios';
+import authHeader from '../service/Auth-Header';
 
 const HTTPService = () => {
 
@@ -10,27 +11,27 @@ const HTTPService = () => {
   };
 
   const getDataById = async (id) => {
-    const response = await axios.get(`${url}/${id}`);
+    const response = await axios.get(`${url}/${id}`, { headers: authHeader() });
     return response.data;
 
   };
 
   const createData = async (data) => {
-    console.log(data);
+    console.log(authHeader());
     
-    const response = await axios.post(`${url}`, data,{headers:{"Content-Type" : "application/json"}});
+    const response = await axios.post(`${url}`, data, {headers:{"Content-Type" : "application/json",  "Authorization": 'Bearer ' + authHeader() }});
     return response.data;
 
   };
 
   const updateData = async (id, data) => {
-    const response = await axios.put(`${url}/${id}`, data);
+    const response = await axios.put(`${url}/${id}`, data, { headers: authHeader() });
     return response.data;
 
   };
 
   const deleteData = async (id) => {
-    const response = await axios.delete(`${url}/${id}`);
+    const response = await axios.delete(`${url}/${id}`, { headers: authHeader() });
     return response.data;
 
   };
